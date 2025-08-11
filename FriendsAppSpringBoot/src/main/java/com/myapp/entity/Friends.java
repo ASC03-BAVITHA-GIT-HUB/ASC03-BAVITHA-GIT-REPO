@@ -8,21 +8,25 @@ public class Friends {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "Name", nullable = false)
     private String name;
-    @Column(name = "EMAIL_ID", nullable = false)
+    @Column(name = "emailId", nullable = false)
     private String emailId;
-    @Column(name = "PHONE", nullable = false)
-    private String Phone;
-    @Column(name = "GENDER", nullable = false)
-    private String Gender;
+    @Column(name = "phone", nullable = false)
+    private String phone;
+    @Column(name = "gender", nullable = false)
+    private String gender;
+
+    public Friends(){
+
+    }
 
     public Friends(Long id, String name, String emailId, String phone, String gender) {
         this.id = id;
         this.name = name;
         this.emailId = emailId;
-        Phone = phone;
-        Gender = gender;
+        this.phone = phone;
+        this.gender = gender;
     }
 
     public Long getId() {
@@ -50,19 +54,18 @@ public class Friends {
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(String gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 }
-
