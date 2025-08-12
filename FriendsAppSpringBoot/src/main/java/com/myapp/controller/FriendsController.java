@@ -1,11 +1,17 @@
 package com.myapp.controller;
 
 import com.myapp.entity.Friends;
+import com.myapp.repository.FriendsRepository;
 import com.myapp.service.FriendsServiceSpring;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+
+import static com.fasterxml.jackson.databind.type.LogicalType.Collection;
 
 @RestController
 @RequestMapping("/friends")
@@ -37,4 +43,13 @@ public class FriendsController {
         return "Friend deleted successfully";
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody Friends friend) {
+        boolean ok = friendsService.login(friend.getName(),friend.getPassword());
+        if (ok) {
+            return "Login successful";
+        } else {
+            return "Login failed - invalid user";
+        }
+    }
 }

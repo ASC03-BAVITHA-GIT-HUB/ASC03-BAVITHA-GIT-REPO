@@ -3,6 +3,8 @@ package com.myapp.repository;
 import com.myapp.entity.Friends;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FriendsRepository extends JpaRepository<Friends,Long> {
+import java.util.Optional;
 
+public interface FriendsRepository extends JpaRepository<Friends,Long> {
+    Friends findByNameAndPassword(String name, String password);
 }

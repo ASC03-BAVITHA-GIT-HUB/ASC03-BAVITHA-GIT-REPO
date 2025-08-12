@@ -32,6 +32,11 @@ public class FriendsServiceImpl implements FriendsServiceSpring {
     @Override
     public void deleteById(Long Id) {
         friendsRepository.deleteById(Id);
+    }
+
+    public boolean login(String name, String password) {
+        Friends friend = friendsRepository.findByNameAndPassword(name,password);
+        return friend != null;
 
     }
 }

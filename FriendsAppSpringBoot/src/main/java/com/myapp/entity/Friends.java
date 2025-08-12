@@ -8,7 +8,7 @@ public class Friends {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "Name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "emailId", nullable = false)
     private String emailId;
@@ -16,6 +16,8 @@ public class Friends {
     private String phone;
     @Column(name = "gender", nullable = false)
     private String gender;
+    @Column(name = "password", nullable = false)
+    private String password;
 
     public Friends(){
 
@@ -67,5 +69,13 @@ public class Friends {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
