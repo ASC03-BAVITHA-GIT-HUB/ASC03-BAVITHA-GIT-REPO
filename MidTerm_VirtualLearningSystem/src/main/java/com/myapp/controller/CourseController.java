@@ -5,6 +5,7 @@ import com.myapp.service.CourseServiceSpring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class CourseController {
 
 
     @PostMapping("/addcourse")
-    public Course addCourse(@RequestBody Course course) {
+    public Course addCourse(@RequestBody @Valid Course course) {
         return courseService.addCourse(course);
     }
 

@@ -6,6 +6,7 @@ import com.myapp.service.CourseServiceSpring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class CartController {
     }
 
     @PostMapping("/add/{courseId}")
-    public String addToCart(@PathVariable Long courseId) {
+    public String addToCart(@PathVariable  Long courseId) {
         Course course = courseService.getById(courseId);
         if (course != null) {
             cartService.addToCart(course);

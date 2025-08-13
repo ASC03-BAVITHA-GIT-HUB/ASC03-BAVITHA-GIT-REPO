@@ -1,6 +1,7 @@
 package com.myapp.service;
 
 import com.myapp.entity.Register;
+import com.myapp.exceptions.UserNameAlreadyExistsException;
 import com.myapp.repository.RegisterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,10 @@ public class RegisterServcieImpl implements RegisterServiceSpring {
     public String register(String username, String password) {
         Register existing = registerRepository.findByUsername(username);
         if (existing != null) {
-            return "Username already exists";
+            throw new UserNameAlreadyExistsException("Username '" + username + "' already exists");
         }
-
-        Register saved = new Register (username, password);
-        registerRepository.save(saved);
-        return "Registration done!";
+        registerRepository.save(new Register(username, password));
+        return "Registration done!!!!";
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.myapp.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -11,8 +12,11 @@ public class Register {
     private Long id;
     @Column(name = "username", nullable = false)
     private String username;
+    @Pattern(
+            regexp = "^(?=.*[0-9])(?=.*[A-Z]).{6,}$",
+            message = "Password must be at least 6 charcters long, contain at least one uppercase letter and one digit"
+    )
     @Column(name = "password", nullable = false)
-    @Size(min = 6, message = "Password must be atleast 6 characters")
     private String password;
 
     public Register(){

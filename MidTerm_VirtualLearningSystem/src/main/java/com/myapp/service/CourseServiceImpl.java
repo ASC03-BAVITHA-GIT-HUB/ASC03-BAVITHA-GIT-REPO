@@ -1,6 +1,7 @@
 package com.myapp.service;
 
 import com.myapp.entity.Course;
+import com.myapp.exceptions.CourseAlreadyExistsException;
 import com.myapp.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,11 @@ public class CourseServiceImpl implements CourseServiceSpring {
 
     @Override
     public Course addCourse(Course course) {
+        if (courseRepository.findByCourseName(course.getCourseName()) != null) {
+            throw new CourseAlreadyExistsException(
+                    "Course with name  '" + course.getCourseName() + "' already exists"
+            );
+        }
         return courseRepository.save(course);
     }
 
