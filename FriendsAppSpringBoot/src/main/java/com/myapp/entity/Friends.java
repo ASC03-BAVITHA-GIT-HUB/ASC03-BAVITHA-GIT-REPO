@@ -1,9 +1,10 @@
 package com.myapp.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "FRIENDS")
+@Table(name = "FRI")
 public class Friends {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,8 +17,8 @@ public class Friends {
     private String phone;
     @Column(name = "gender", nullable = false)
     private String gender;
-    @Column(name = "password", nullable = false)
-    private String password;
+
+    private LocalDateTime FriendCreatedOn = LocalDateTime.now();
 
     public Friends(){
 
@@ -71,11 +72,11 @@ public class Friends {
         this.gender = gender;
     }
 
-    public String getPassword() {
-        return password;
+    public LocalDateTime getFriendCreatedOn() {
+        return FriendCreatedOn;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setFriendCreatedOn(LocalDateTime friendCreatedOn) {
+        FriendCreatedOn = friendCreatedOn;
     }
 }

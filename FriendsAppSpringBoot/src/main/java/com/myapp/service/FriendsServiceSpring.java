@@ -9,5 +9,6 @@ public interface FriendsServiceSpring {
     List<Friends> getAllFriends();
     Friends getFriendById(Long Id);
     void deleteById(Long Id);
-    boolean login(String name, String password);
 }
+
+

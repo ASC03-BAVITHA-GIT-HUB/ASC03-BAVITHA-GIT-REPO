@@ -43,13 +43,4 @@ public class FriendsController {
         return "Friend deleted successfully";
     }
 
-    @PostMapping("/login")
-    public String login(@RequestBody Friends friend) {
-        boolean ok = friendsService.login(friend.getName(),friend.getPassword());
-        if (ok) {
-            return "Login successful";
-        } else {
-            return "Login failed - invalid user";
-        }
-    }
 }

@@ -5,7 +5,7 @@ import com.myapp.repository.FriendsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -34,9 +34,4 @@ public class FriendsServiceImpl implements FriendsServiceSpring {
         friendsRepository.deleteById(Id);
     }
 
-    public boolean login(String name, String password) {
-        Friends friend = friendsRepository.findByNameAndPassword(name,password);
-        return friend != null;
-
-    }
 }
