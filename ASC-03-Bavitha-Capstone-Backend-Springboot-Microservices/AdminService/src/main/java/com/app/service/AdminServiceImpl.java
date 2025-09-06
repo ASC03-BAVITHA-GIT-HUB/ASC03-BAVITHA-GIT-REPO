@@ -17,7 +17,7 @@ public class AdminServiceImpl implements AdminService {
     private final AdminRepository repo;
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    // configurable (defaults to 3 attempts, 30 minutes if not set in application.properties)
+
     @Value("${admin.auth.maxFailedAttempts:3}")
     private int maxFailedAttempts;
 
