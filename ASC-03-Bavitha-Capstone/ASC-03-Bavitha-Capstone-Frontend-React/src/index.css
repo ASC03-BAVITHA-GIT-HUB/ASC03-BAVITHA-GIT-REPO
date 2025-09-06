@@ -1,0 +1,227 @@
+/* ========= Global Base ========= */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: #f6f8fb;
+  color: #0f172a;
+}
+
+/* Center helper for page bodies */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ========= Topbar (brand centered, actions on right) ========= */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;           /* brand in the middle */
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.topbar .brand {
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: .2px;
+}
+
+.topbar .actions {
+  position: absolute;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+/* ========= Cards / Panels ========= */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16,24,40,.06);
+  padding: 20px;
+}
+
+.card-lg { padding: 28px; border-radius: 14px; }
+
+/* ========= Forms ========= */
+.input, input, select {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color .15s ease;
+}
+.input:focus, input:focus, select:focus {
+  border-color: #2563eb;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.row > * { flex: 1 1 220px; }
+
+.help, .muted {
+  color: #64748b;
+  font-size: 13px;
+}
+.small { font-size: 12px; }
+
+/* ========= Buttons ========= */
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .02s ease, background .2s ease, box-shadow .2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  color: #fff;
+  background: #2563eb;
+}
+.btn-primary:hover { background: #1d4ed8; }
+
+.btn-outline {
+  color: #1f2937;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+}
+.btn-outline:hover { background: #f8fafc; }
+
+.btn-success {
+  color: #fff;
+  background: #16a34a;
+}
+.btn-success:hover { background: #15803d; }
+
+.btn-danger {
+  color: #fff;
+  background: #dc2626;
+}
+.btn-danger:hover { background: #b91c1c; }
+
+.btn-link {
+  background: transparent;
+  color: #2563eb;
+}
+.btn-link:hover { text-decoration: underline; }
+
+/* ========= Auth (Login) ========= */
+.auth-wrap {
+  min-height: calc(100vh - 58px); /* minus topbar */
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 420px;
+  max-width: 92vw;
+}
+
+/* ========= Page titles ========= */
+.page-title {
+  margin: 18px 0 16px;
+  text-align: center;               /* centered as requested */
+  font-weight: 800;
+  font-size: 28px;
+}
+
+/* ========= Dashboard ========= */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.tile {
+  background: #e8f0ff;
+  border: 1px solid #cde0ff;
+  color: #1e40af;
+  border-radius: 12px;
+  padding: 18px;
+  font-weight: 700;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+  cursor: pointer;
+}
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(29,78,216,.15);
+  background: #dbeafe;
+}
+
+/* ========= Tables ========= */
+.table-wrap {
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 820px; /* keep nicely spaced columns */
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background: #f1f5ff;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1e40af;
+  font-weight: 700;
+  padding: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.table tbody tr:nth-child(odd) { background: #fafbff; }
+.table tbody tr:hover { background: #eef2ff; }
+
+/* Actions column center if you wish */
+.td-actions {
+  width: 170px;
+  text-align: center;
+}
+
+/* Utility spacing */
+.stack { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+/* ========= Empty states ========= */
+.empty {
+  padding: 22px;
+  text-align: center;
+  color: #64748b;
+}
